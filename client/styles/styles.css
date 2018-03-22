@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+}
+
+div#app {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.ui.grid {
+   min-height: inherit !important;
+ }
+
+ .ui.grid > .column {
+   min-height: 100% !important;
+ }
+
+.mgn-0 {
+  margin: 0 !important;
+}
+
+.pd-0 {
+  padding: 0 !important;
+}
+
+.ht-100pct {
+  min-height: inherit !important;
+}
+
+.oflow-scr {
+  overflow-y: scroll;
+}
