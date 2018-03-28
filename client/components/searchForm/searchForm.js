@@ -7,16 +7,19 @@ const QueryForm = ({districts, categories, resolutions, query, querying, onChang
       <Form.Group widths='equal'>
         <Form.Select
           name="properties.district"
+          multiple={true}
           options={districts}
           onChange={onChange}
           placeholder="District" />
         <Form.Select
           name="properties.category"
+          multiple={true}
           options={categories}
           onChange={onChange}
           placeholder="Category" />
         <Form.Select
           name="properties.resolution"
+          multiple={true}
           options={resolutions}
           onChange={onChange}
           placeholder="Resolution" />

@@ -1,6 +1,7 @@
 const express = require('express');
 const Incident = require('../db/models/incident.model');
 const projectionBuilder = require('../utils/projectionBuilder');
+const mongoQueryArrayBuilder = require('../utils/mongoQueryArrayBuilder');
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.get('/incidents', function(req, res){
       incidentsProjection = projectionBuilder(query.fields, incidentsFields);
       delete query.fields;
     }
+    query = mongoQueryArrayBuilder(query);
     let incidentsQuery = Incident.find(query).select(incidentsProjection);
     incidentsQuery.exec(function(err, incidents){
       res.json(incidents);
