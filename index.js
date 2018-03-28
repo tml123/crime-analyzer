@@ -7,7 +7,7 @@ const express = require('express');
 const mongoose = require('./server/db/db.config');
 // import the routes
 const incidentRoutes = require('./server/routes/incidents.routes');
-
+const uniques = require('./server/db/models/uniques.model');
 // webpack
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -29,6 +29,13 @@ const router = express.Router();
 router.get('/', function(req, res){
   res.json({msg: 'hello from api'});
 });
+
+router.get('/uniques', function(req, res) {
+  uniques.findOne().then(function(uniqueValues){
+    res.json(uniqueValues);
+  });
+
+})
 // prefix with /api
 app.use('/api', router);
 app.use('/api', incidentRoutes);

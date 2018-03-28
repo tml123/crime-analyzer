@@ -1,9 +1,9 @@
 import React from 'react';
-import {Form, Button} from 'semantic-ui-react';
+import {Menu, Form, Button} from 'semantic-ui-react';
 
 const QueryForm = ({districts, categories, resolutions, query, querying, onChange}) => {
   return (
-    <Form>
+    <Form as={Menu} secondary className="mgn-0 pd-0">
       <Form.Group widths='equal'>
         <Form.Select
           name="properties.district"
@@ -23,11 +23,13 @@ const QueryForm = ({districts, categories, resolutions, query, querying, onChang
           options={resolutions}
           onChange={onChange}
           placeholder="Resolution" />
-          <Button type="submit"
-                 disabled={querying}
-                 content={querying ? 'Fetching...': 'Submit'}
-                 onClick={query} />
       </Form.Group>
+      <Menu.Menu position='right'>
+        <Button type="submit"
+               disabled={querying}
+               content={querying ? 'Fetching...': 'Submit'}
+               onClick={query} />
+      </Menu.Menu>
     </Form>
   );
 };
